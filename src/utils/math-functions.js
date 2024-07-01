@@ -17,3 +17,6 @@ function sum(a = 0, b = 0) {
       throw new Error("You can't divide by 0");
     }
   }
+
+
+export {sum, substract, multiply, divide};
