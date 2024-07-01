@@ -34,17 +34,23 @@ export function Calculator({defaultA, defaultB, defaultOperator}){
     }
 
     const renderInputA = () =>{
-        return (<input value={inputValueA} type="number" 
-            onChange={(e) => setInputValueA(e.target.value ? Number.parseFloat(e.target.value) : 0)} />) ;
+        return (<input value={inputValueA} 
+            type="number" 
+            onChange={(e) => setInputValueA(e.target.value ? Number.parseFloat(e.target.value) : 0)} 
+            data-testid="inputA"
+            />) ;
     };
 
     const renderInputB = () =>{
-        return (<input value={inputValueB} type="number" 
-            onChange={(e) => setInputValueB(e.target.value ? Number.parseFloat(e.target.value) : 0)} />) ;
+        return (<input value={inputValueB} 
+            type="number" 
+            onChange={(e) => setInputValueB(e.target.value ? Number.parseFloat(e.target.value) : 0)} 
+            data-testid="inputB"
+            />) ;
     };
 
     const renderSelectOperator = () => {
-        return(<select value={operator} onChange={(e) => setOperator(e.target.value)}>
+        return(<select value={operator} onChange={(e) => setOperator(e.target.value)} data-testid="inputOperator">
             <option value="+">+</option>
             <option value="-">-</option>
             <option value="x">x</option>
@@ -61,6 +67,6 @@ export function Calculator({defaultA, defaultB, defaultOperator}){
         {renderSelectOperator()}
 
         <h2 style={{margin: 20}}>Result</h2>
-        {getResult()}
+        <span data-testid="result">{getResult()}</span>
     </>
 }
